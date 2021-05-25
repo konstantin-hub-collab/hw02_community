@@ -9,12 +9,12 @@ class Group(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         verbose_name = 'Группа'
         verbose_name_plural = 'Группы'
+
+    def __str__(self):
+        return self.title
 
 
 class Post(models.Model):
@@ -29,4 +29,4 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Пост'
         verbose_name_plural = 'Посты'
-        ordering = ['-pub_date']
+        ordering = ('-pub_date',)
